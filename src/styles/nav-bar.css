@@ -1,0 +1,349 @@
+
+
+
+
+header {
+    width: 100%;
+    height: 72px;
+    text-align: center;
+    z-index: 999;
+    font-family: 'Roboto', sans-serif;
+    top: 0;
+    left: 0;
+    transition: all ease 0.5s, border 0.1s ease;
+    box-shadow: 0 3px 5px 0px #eee;
+    position: fixed;
+    background-color: #f2f2f2;
+}
+
+
+.navbar{
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 0 10px;
+}
+
+
+.navbar .navheading{
+    position: relative;
+    display: block;
+    line-height: 62px;
+    user-select: none;
+    cursor: default;
+}
+
+.navbar .navheading h2{
+    position: relative;
+    display: inline-block;
+    letter-spacing: -0.2px;
+    font-family: 'Merriweather', serif;
+    font-size: 21px;
+    font-weight: 700;
+    color: #444;
+    margin-block: unset;
+    margin-inline: unset;
+    transition: all ease 0.5s;
+}
+
+.navbar .navheading h2 .txtBitcoin{
+    font-weight: 500;
+}
+.navbar .navheading h2 .txtPg{
+    position: relative;
+    left: -4px;
+}
+
+.navbar .navheading .author{
+    position: relative;
+    text-align: left;
+    height: 15px;
+    line-height: 15px;
+    top: -22px;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.2px;
+    transition: all ease 0.5s
+}
+
+
+.navbar .linklist{
+    display: flex;
+    align-items: center;
+    -webkit-box-align: center;
+    flex-direction: row;
+    position: relative;
+    width: 360px;
+    margin: 0 auto;
+}
+
+.navbar .linklist .anchorlink{
+    position: relative;
+    display: inline-block;
+    width: auto;
+    float: left;
+    height: 36px;
+    box-sizing: border-box;
+    margin: 9px 10px;
+    padding: 1px;
+    font-size: 16px;
+    color: #999;
+    text-transform: capitalize;
+    line-height: 1.2;
+    text-align: center;
+    cursor: pointer;
+    vertical-align: top;
+    outline: none;
+    transition: all 0.5s ease;
+}
+
+.navbar .linklist .anchorlink:hover{
+    text-decoration: none;
+    background-color: #e6e6e6;
+    color: #111;
+}
+
+.navbar .linklist .anchorlink .linktxt{
+    color: #000;
+}
+
+.navbar .linklist .anchorlink:hover .linktxt{
+    color: #111;
+}
+
+
+
+
+
+.burger {
+    position: absolute;
+    display: none;
+    border-left: 2px solid #fff;
+    right: 0;
+    top: 0;
+    padding: 16px 11px;
+    width: 48px;
+    height: 50px;
+    max-height: 50px;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    transition: background 0.4s ease;
+}
+
+.burger .patty {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: #aaa;
+    margin: 3px 0;
+    border-radius: 8px;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    cursor: pointer;
+    transition: all .4s ease;
+}
+
+
+.burger.active {
+    padding-bottom: 13px;
+    z-index: 1000;
+    background: #fff;
+}
+
+.burger.active .one {
+    transform: rotateZ(45deg);
+    transform-origin: 50%;
+    top: 6px;
+}
+.burger.active .two {
+    opacity: 0;
+}
+.burger.active .three {
+    transform: rotateZ(-45deg);
+    transform-origin: 50%;
+    top: -6px;
+}
+
+
+
+
+.mainmenu {
+    position: fixed;
+    top: 50px;
+    right: 0;
+    width: 0;
+    height: 0 !important;
+    display: block;
+    overflow: hidden;
+    border: 1px solid #eee;
+    border-top: 2px solid #eee;
+    border-right: 0 solid #fff;
+    background: #fff;
+    color: #888;
+    z-index: 1000;
+    transition: height .4s ease;
+}
+
+.mainmenu.active {
+    width: 220px;
+    right: 0;
+    height: 160px !important;
+}
+
+
+.mainmenu ul.list {
+    position: relative;
+    list-style: none;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: inline-grid;
+    margin: 0;
+    padding: 0;
+}
+
+
+.mainmenu ul.list .list-item {
+    position: relative;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+    display: inline-block;
+    padding: 14px 0;
+    padding-left: 18px;
+}
+
+.mainmenu ul.list .list-item .anchorlink{
+    display: block;
+    line-height: 22px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 400;
+    color: #444;
+    text-decoration: none;
+}
+
+.mainmenu ul.list .list-item .list-item-container {
+    min-height: 48px;
+    margin: 0;
+    padding: 0;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex: 1;
+    flex: 1;
+    position: relative;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: left;
+    text-transform: none;
+    border-radius: 0;
+}
+
+
+.mainmenu ul.list .list-item .list-item-container .followus {
+    position: relative;
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 24px;
+}
+
+.clearfix, .clearfix:after, .clearfix:before {
+    content: " ";
+    display: table;
+    clear: both;
+}
+
+.mainmenu ul.list .list-item .list-item-container .pull-left {
+    float: left !important;
+}
+
+.mainmenu ul.list .list-item .list-item-container .pull-right {
+    float: right !important;
+    position: relative;
+    width: 110px;
+    left: 10px;
+    text-align: center;
+}
+
+.mainmenu ul.list .list-item .list-item-container .social-media a {
+    position: relative;
+    width: 26px;
+    height: 26px;
+    display: inline-block;
+    overflow: hidden;
+    background: #eee;
+    text-align: center;
+    border-radius: 50%;
+    margin: 0 3px;
+}
+
+.mainmenu ul.list .list-item .list-item-container .social-media a .socialIcons {
+    width: 0.7em;
+    height: 0.7em;
+    margin-top: 4px;
+    pointer-events: none;
+    cursor: pointer;
+}
+
+.mainmenu ul.list .list-item .list-item-container .social-media a:hover .socialIcons {
+    text-decoration: none;
+    width: 0.85em;
+    height: 0.85em;
+    margin-top: 3px;
+    fill: rgb(0, 9, 129);
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width:768px) {
+
+    .burger{ display: inline-block; }
+    .navbar .linklist{ display: none; }
+
+    header{
+        height: 50px;
+    }
+
+    .navbar .navheading{
+        line-height: 40px;
+    }
+
+    .navbar .navheading h2{
+        font-size: 19px;
+    }
+
+    .navbar .navheading .author{
+        top: -12px;
+        font-size: 9px;
+    }
+
+    
+
+}

@@ -6,5 +6,28 @@
 
 module.exports = {
   /* Your site config here */
-  plugins: [],
+  plugins: [
+    {
+      resolve: `gatsby-plugin-create-client-paths`,
+      options: { prefixes: [`/*`] }
+    },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        icon: './static/logo.png',
+        background_color: `#FFFFFF`,
+        theme_color: `#05814d`,
+        start_url: `/`,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-google-fonts',
+      options: {
+        fonts: [
+          'material icons',
+          'lato:300,400,500,700',
+        ],
+      },
+    },
+  ],
 }

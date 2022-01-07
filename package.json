@@ -14,9 +14,24 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "@mui/icons-material": "^5.2.5",
+    "axios": "^0.24.0",
+    "bip32": "^3.0.1",
+    "bip39": "^3.0.4",
+    "bitcoinjs-lib": "^6.0.1",
+    "formik": "^2.2.9",
     "gatsby": "^4.4.0",
+    "gatsby-plugin-create-client-paths": "^4.4.0",
+    "gatsby-plugin-google-fonts": "^1.0.1",
+    "gatsby-plugin-manifest": "^4.4.0",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react-anchor-link-smooth-scroll": "^1.0.12",
+    "react-dom": "^17.0.1",
+    "stream-browserify": "^3.0.0",
+    "stream-transform": "^3.0.4",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "prettier": "^2.5.1"
