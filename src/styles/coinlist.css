@@ -6,12 +6,11 @@
     margin: 0 auto;
 }
 
-
 .coin-list{
     position: relative;
     display: block;
     overflow: auto;
-    max-height: 320px;
+    max-height: 332px;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
@@ -56,37 +55,51 @@
     display: inline-block;
     width: 120px;
     float: right;
+    height: 42px;
+    /* border: 1px solid #eee; */
+    box-sizing: border-box;
+    /* overflow: hidden; */
 }
 
 .currencyBtns .currencyBtn{
     position: relative;
     display: inline-block;
-    width: 60px;
+    width: 44%;
+    margin: 0 3%;
     height: 42px;
     line-height: 42px;
+    color: #888;
     text-align: center;
     float: right;
     user-select: none;
     cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.6s ease;
 }
 
 .currencyBtns .currencyBtn.active{
     margin-bottom: 20px;
     top: 0;
-    background-color: #eee;
-    color: #000;
+    /* background-color: #eee; */
+    box-shadow: rgb(0 0 0 / 13%) 0px 7px 11px;
+    color: #0057a3;
     font-weight: 700;
+    cursor: default;
+    pointer-events: none;
 }
 
 
 .currencyBtns .currencyBtn:hover{
-    background-color: #f6f6f6;
+    background-color: #dff0ff;
+    color: #0057a3;
 }
 
 .coin-list .coin-container{
     display: block;
     justify-content: center;
-    width: 760px;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
 }
 
 
@@ -99,24 +112,46 @@
     border-bottom: 1px solid #d7d7d7;
 }
 
+.coin-list .coin-container:last-child .coin-row{
+    border-bottom: 0px solid #d7d7d7;
+}
+
 
 .coin-list .coin-container .coin-row .coin{
-    display: flex;
+    display: inline-block;
     align-items: center;
-    padding: 24px 12px;
+    padding: 0 12px;
     min-width: 125px !important;
 }
 
 .coin-list .coin-container .coin-row .coin img{
-    height: 24px;
+    height: 100%;
     width: 24px;
     margin-right: 8px;
+    position: relative;
+    top: 0;
+    object-fit: contain;
+    padding-top: 0;
+    display: inline-block;
 }
 
 .coin-list .coin-container .coin-row .coin h1{
     font-size: 14px;
-    width: 100px;
+    width: 132px;
+    height: 42px;
+    line-height: 42px;
+    position: relative;
+    top: 0;
+    display: flex;
 }
+
+.coin-list .coin-container .coin-row .coin h1 span{
+    display: inline-block;
+    position: relative;
+    height: 42px;
+    top: 0;
+}
+
 
 .coin-list .coin-container .coin-row .coin-data{
     display: flex;
@@ -140,6 +175,28 @@
 
 .coin-list .coin-container .coin-row .coin-data .coin-percent{
     width: 100px;
+    text-align: center;
+}
+
+
+.coin-list .coin-container .coin-row .coin-data .coin-percent.red:after{
+    content: '\25bc';
+    display: inline-block;
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 14px;
+    height: 100%;
+}
+
+.coin-list .coin-container .coin-row .coin-data .coin-percent.green:after{
+    content: '\25B2';
+    display: inline-block;
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 14px;
+    height: 100%;
 }
 
 .coin-list .coin-container .coin-row .coin-data .coin-percent.red{
@@ -174,6 +231,8 @@
 }
 
 
+
+/* Source of the crypto coin data */
 .source {
     position: absolute;
     left: 0;
@@ -194,4 +253,64 @@ source .link {
     font-weight: 600;
     text-transform: none;
     cursor: default;
+}
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:768px) {
+
+    .coin-list .coin-container .coin-row{
+        display: block;
+        height: unset;
+    }
+
+    .coin-list .coin-container .coin-row .coin-data{
+        position: relative;
+        display: inline-block;
+    }
+
+    .coin-field{
+        display: inline-block;
+        position: relative;
+        width: 40% !important;
+        margin-right: 5%;
+        text-align: left;
+    }
+
+    .coin-field span{
+        left: 0;
+        right: unset;
+    }
+
+    .coin-list .coin-container .coin-row .coin-data .coin-marketcap,
+    .coin-list .coin-container .coin-row .coin-data .coin-percent{
+        text-align: left;
+    }
+
+    .coin-list .coin-container .coin-row .coin,
+    .coin-list .coin-container .coin-row .coin h1{
+        margin: 0 auto;
+        text-align: center;
+        display: block;
+        width: 100%;
+    }
+
+    .coin-list .coin-container .coin-row .coin img{
+        margin-right: 0;
+    }
+
+    .coin-list .coin-container .coin-row .coin h1 span {
+        display: inline-block;
+        position: relative;
+        height: 42px;
+        top: -16px;
+        left: 7px;
+    }
+
 }

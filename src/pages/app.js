@@ -3,7 +3,7 @@ import { Router } from "@reach/router";
 import PlaygroundLayout from "../layouts/playground";
 import GenerateBipSeed from "../components/bip/generate";
 import GenerateHDAddress from "../components/hierarchical/hd-address"
-// import generateMultisignature from "../components/multisignature/paytoscripthash";
+import GenerateMultisignature from "../components/multisignature/paytoscripthash";
 import CoinDisplay from "../components/coindisplay/coin";
 import "../styles/index.css";
 
@@ -19,7 +19,7 @@ class App extends React.Component {
                 <CoinDisplay />
                 <GenerateBipSeed />
                 <GenerateHDAddress />
-                {/* <generateMultisignature /> */}
+                <GenerateMultisignature />
              </PlaygroundLayout>
             </>
            

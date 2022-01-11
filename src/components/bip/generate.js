@@ -1,5 +1,7 @@
 import React from "react"
 import * as bip39 from 'bip39';
+import CachedIcon from '@mui/icons-material/Cached';
+
 
 class GenerateBipSeed extends React.Component {
     state = {
@@ -27,33 +29,23 @@ class GenerateBipSeed extends React.Component {
         "mnemonicCopyStatus": "none"
     };
 
-
     componentDidMount = () => {
-      
         this.generateCurrentSeed();
     }
 
-    langChange = ev => {
-        var val = ev.target.value;
+    updateFields = ev => {
+        var val = ev.target.value, 
+        name = ev.target.getAttribute("data-name");
 
         this.setState({
-            "curlang": val
+            [name]: val
         },() => { 
-            console.log('current state is ', this.state);
             this.generateCurrentSeed();
         });
     }
 
-    entropyChange = ev => {
-        var val = ev.target.value;
-        this.setState({
-            "seedNum": val
-        },() => { 
-            console.log('current state is ', this.state);
-            this.generateCurrentSeed();
-        });
-    }
 
+ 
     generateCurrentSeed = () => {
         var num = this.state.seedNum,
         lang = this.state.curlang;
@@ -63,11 +55,7 @@ class GenerateBipSeed extends React.Component {
 
         this.customHandleUpdate("mnemonic", myMnemonic);
         this.customHandleUpdate("bipSeed", mySeed.toString('hex'));
-
-        // console.log('bip39 is ', bip39, Buffer);
-
     }
-
 
     customHandleUpdate = (name, val) => {
         this.setState({
@@ -84,11 +72,9 @@ class GenerateBipSeed extends React.Component {
         this.setState({ copySuccess: 'Copied!' });
     }
 
-    handleFocus = (ev) => {ev.target.focus();ev.target.select();};
-
-
-    
-
+    handleFocus = (ev) => {
+        ev.target.focus();ev.target.select();
+    }
 
     render(){
         return(
@@ -104,7 +90,7 @@ class GenerateBipSeed extends React.Component {
                     <div className="input-section">
                         <label className="inputLabel inline-label">
                             <div className="fieldName">Language</div>
-                            <select id="langSelect" className="fieldSelect" defaultValue={(this.state.curlang) ? this.state.curlang : "english"} onChange={this.langChange} >
+                            <select id="langSelect" className="fieldSelect" defaultValue={(this.state.curlang) ? this.state.curlang : "english"} onChange={this.updateFields} data-name="curlang" >
                             {this.state.lang_list.map((element, idx) => (
                                 <option value={element.value} key={idx}>
                                     {element.label}
@@ -116,7 +102,7 @@ class GenerateBipSeed extends React.Component {
                         <label className="inputLabel inline-label">
                             <div className="fieldName">Length</div>
 
-                            <select id="entropySelect" className="fieldSelect" defaultValue={(this.state.seedNum) ? this.state.seedNum : "128"} onChange={this.entropyChange} >
+                            <select id="entropySelect" className="fieldSelect" defaultValue={(this.state.seedNum) ? this.state.seedNum : "128"} onChange={this.updateFields}  data-name="seedNum">
                             {this.state.entropy_list.map((element, idx) => (
                                 <option value={element.value} key={idx}>
                                     {element.label}
@@ -124,16 +110,17 @@ class GenerateBipSeed extends React.Component {
                             ))}                            
                             </select>
                         </label>
+
+                        <div className="refreshIcon" onClick={this.generateCurrentSeed}>
+                            <CachedIcon />
+                        </div>
                     </div>
 
                     <div className="output-section">
                         <div className="displayVal">
                             <div className="displayHeading">Mnemonic</div>
                             <div className="copyVal">
-                                <textarea id="mnemonicTxt" readOnly onFocus={this.handleFocus} value={(this.state.mnemonic) ? this.state.mnemonic : ""}>
-                                </textarea>
-                               
-                                
+                                <textarea id="mnemonicTxt" readOnly onFocus={this.handleFocus} value={(this.state.mnemonic) ? this.state.mnemonic : ""}></textarea> 
                             </div>
                         </div>
 

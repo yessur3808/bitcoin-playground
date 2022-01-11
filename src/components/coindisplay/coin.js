@@ -15,13 +15,12 @@ class CoinDisplay extends React.Component {
     loadData = () => {
         axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency='+this.state.currency+'&order=market_cap_desc&per_page=150&page=1&sparkline=false')
         .then(res=>{
-           this.customHandleUpdate('cryptoData',res.data)
-           this.customHandleUpdate('filteredCryptoData',res.data)
-           console.log(res.data)
+           this.customHandleUpdate('cryptoData',res.data);
+           this.customHandleUpdate('filteredCryptoData',res.data);
         }).catch(error=>console.log(error))
     }
 
-    switchCurrency = (ev) => {
+    switchCurrency = ev => {
         var cur_currency = ev.target.getAttribute("data-currency");
         this.setState({
             "currency": cur_currency
@@ -31,27 +30,21 @@ class CoinDisplay extends React.Component {
     }
 
     customHandleUpdate = (name, val) => {
-        this.setState({
-            [name]: val
-        }, () => { 
-            console.log('current state is ', this.state);
-        });
+        this.setState({ [name]: val });
     }
 
     handleSearch = ev => {
         var val = ev.target.value;
-        console.log('searching for ');
         var filteredCoins = this.state.cryptoData.filter(coin => {
             return coin.name.toLowerCase().includes(val.toLowerCase());
         });
         this.customHandleUpdate('filteredCryptoData', filteredCoins)
     }
 
-
     render(){
         return(
             <div className="coin-widget">
-             <h2>Top 15 Coins</h2>
+             <h2>Top Coins</h2>
 
 
              <div className="coin-search">
@@ -68,14 +61,18 @@ class CoinDisplay extends React.Component {
 
 
 
-            {(this.state.filteredCryptoData && this.state.filteredCryptoData.length && (this.state.filteredCryptoData.length > 0)) ? (this.state.filteredCryptoData.splice(0,15).map((elem, idx) => 
+            {(this.state.filteredCryptoData && this.state.filteredCryptoData.length && (this.state.filteredCryptoData.length > 0)) ? (this.state.filteredCryptoData.splice(0,4).map((elem, idx) => 
 
             (
                 <div className="coin-container">
                     <div className="coin-row">
                         <div className="coin">
-                            <img src={elem.image} alt="crypto" data-symbol={elem.symbol} />
-                            <h1>{elem.name}</h1>
+                            
+                            <h1>
+                                <img src={elem.image} alt="crypto" data-symbol={elem.symbol} /> 
+                                <span>{elem.name}</span>
+                                
+                                </h1>
                         </div>
                         <div className="coin-data">
                             <p className="coin-field coin-price">

@@ -1,5 +1,12 @@
 html{height:100%;font-size:100%;border:0}*{margin:0;padding:0;box-sizing:border-box}
 
+#___gatsby{
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
 body{
     font-family:Lato;
@@ -33,8 +40,6 @@ a,a:active,a:visited{text-decoration:none;color:#001246}a:hover{color:#ffc200;te
 body.stop{
     overflow: hidden;
 }
-
-
 
 label{
     position: relative;
@@ -128,12 +133,10 @@ label.inline-label .fieldSelect{
     transition: all 0.4s ease;
 }
 
-
 label.inline-label .fieldSelect:hover{
     border-color: #333;
     font-weight: 600;
 }
-
 
 label.disabled{
     opacity: 0.2;
@@ -147,7 +150,6 @@ label.disabled .fieldInput{
     pointer-events: none;
 }
 
-
 #hd_segwit label{
     margin-bottom: 12px;
     display: flex;
@@ -160,7 +162,6 @@ label.disabled .fieldInput{
     width: 132px;
 }
 
-
 #hd_segwit label .fieldInput{
     border: none;
     border-bottom: 1px solid #ccc;
@@ -171,11 +172,9 @@ label.disabled .fieldInput{
     width: 100%;
 }
 
-
 #hd_segwit label:last-child{
     margin-bottom: 42px;
 }
-
 
 #hd_segwit label .fieldInput:focus,
 #hd_segwit label .fieldInput:active{
@@ -202,7 +201,6 @@ label.disabled .fieldInput{
     overflow: hidden;
 }
 
-
 .output-section .displayVal.inline-display{
     display: inline-block;
 }
@@ -214,7 +212,6 @@ label.disabled .fieldInput{
     font-weight: 600;
     margin-bottom: 8px;
     color: #666;
-
 }
 
 .output-section .displayVal textarea{
@@ -236,9 +233,6 @@ label.disabled .fieldInput{
     transition: all 0.4s ease;
 }
 
-
-
-
 .pgSection{
     position: relative;
     display: block;
@@ -248,17 +242,12 @@ label.disabled .fieldInput{
     margin-top: 32px;
     padding-top: 20px;
     border-bottom: 1px solid #ccc;
+    overflow: hidden;
 }
-
-
 
 .pgSection:last-child{
     margin-bottom: 120px;
 }
-
-
-
-
 
 .container{
     position: relative;
@@ -269,8 +258,6 @@ label.disabled .fieldInput{
     width: 90%;
 }
 
-
-
 .subheading{
     position: relative;
     margin-bottom: 32px;
@@ -280,8 +267,6 @@ label.disabled .fieldInput{
     letter-spacing: -0.2px;
 }
 
-
-
 .section-container{
     position: relative;
     display: block;
@@ -289,8 +274,6 @@ label.disabled .fieldInput{
     padding: 12px 1.5%;
     margin: 8px 0;
 }
-
-
 
 .section-container .input-section,
 .section-container .output-section{
@@ -300,8 +283,158 @@ label.disabled .fieldInput{
     margin-bottom: 2px;
 }
 
+.section-container .input-section{
+    display: block;
+}
 
-.section-container .output-section{
+form .generatebtn{
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    width: 186px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 40px;
+    text-align: center;
+    background-color: hsl(152, 45%, 35%);
+    border-radius: 5px;
+    margin-top: 42px;
+    margin-bottom: 42px;
+    color: #f4f4f4;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    overflow: hidden;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.refreshIcon{
+    position: relative;
+    display: inline-block;
+    float: right;
+    top: 35px;
+    width: 42px;
+    height: 42px;
+    text-align: center;
+    line-height: 52px;
+    box-shadow: rgb(0 0 0 / 9%) 0px 7px 11px;
+    border-radius: 5px;
+    color: #666;
+    user-select: none;
+    cursor: pointer;
+    transition: all 0.6s ease;
+}
+
+.refreshIcon svg{
+    pointer-events: none;
+}
+
+.refreshIcon:hover,
+.refreshIcon:active{
+    color: #0057a3;
+    box-shadow:inset rgb(0 0 0 / 22%) 0px 0px 10px
+}
+
+form .generatebtn:disabled{
+    color: #eee;
+    background-color: #ddd;
+    border: none;
+    cursor: not-allowed;
+    font-weight: 700;
+}
+
+form .errorMsg {
+    position: absolute;
+    z-index: 2;
+    font-size: 14px;
+    letter-spacing: -0.2px;
+    cursor: default;
+    pointer-events: none;
+    bottom: 0;
+    right: 0;
+    color: #d20000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.errorMsg.active {
+    opacity: 1;
+}
+
+#multi-sig .generatebtn{
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    width: 186px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 42px;
+    margin-bottom: 42px;
+    color: #777;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    overflow: hidden;
+    box-sizing: border-box;
+    cursor: pointer;
+    top: 0;
+    box-shadow: rgb(0 0 0 / 13%) 0px 7px 11px;
+    font-weight: 700;
+    transition: all 0.5s ease;
+}
+
+#multi-sig .generatebtn:hover{
+    box-shadow: rgb(0 0 0 / 13%) 0px 1px 2px;
+    color: #444;
+}
+
+
+#multi-sig .generatebtn .addicon{
+    position: relative;
+    display: inline-block;
+    top: 6px;
+    left: -5px;
+}
+
+#approvalLabel{
+    position: relative;
+    width: 80px;
+}
+
+#approvalLabel .fieldInput{
+    border: none;
+    border-bottom: 1px solid #bbb;
+    border-radius: 0;
+    background-color: rgba(255,255,255,0);
+    text-align: center;
+    padding: 0 8px;
+    height: 32px;
+    line-height: 32px;
+}
+
+.removeKey{
+    position: absolute;
+    right: 0;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    top: -4px;
+    z-index: 2;
+    color: #d4d4d4;
+    user-select: none;
+    cursor: pointer;
+}
+
+.removeKey:hover{
+    color: #d62727;
+}
+
+.publickeyLabel{
 
 }
 
@@ -314,7 +447,15 @@ label.disabled .fieldInput{
 
     .output-section .displayVal{
         margin-bottom: 20px;
+        max-width: none;
     }
 
+    .output-section .displayVal textarea{
+        max-width: 95%;
+        height: 120px;
+    }
 
+    #hd_segwit label{
+        width: 95%;
+    }
 }
