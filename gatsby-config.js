@@ -1,12 +1,13 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/gatsby-config/
- */
-
 module.exports = {
-  /* Your site config here */
+  siteMetadata: {
+    title: "Bitcoin Playground",
+    description: "A bitcoin playground web application",
+    author: "@yaseribrahim",
+    siteUrl:"https://yessur3808.github.io/bitcoin-playground/"
+  },
+  pathPrefix: "/bitcoin-playground",
   plugins: [
+    "gatsby-plugin-sitemap",
     {
       resolve: `gatsby-plugin-create-client-paths`,
       options: { prefixes: [`/*`] }
@@ -25,7 +26,7 @@ module.exports = {
       options: {
         fonts: [
           'material icons',
-          'lato:300,400,500,700',
+          'Roboto:300,400,500,600,700',
         ],
       },
     },
