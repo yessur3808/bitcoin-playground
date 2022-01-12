@@ -16,10 +16,9 @@ A “Bitcoin playground” web app that supports the following operations:
 <!--ts-->
 * [Tech Stack](#Tech-Stack)
 * [Folder Structure](#Folder-Structure)
-*  [Installation](#installation)
 *  [Run Site](#Run-site)
 *  [Create a new site](#Create-a-new-site)
-*  [Dependency](#dependency)
+*  [Libraries](#Libraries)
 <!--te-->
 
 ---
@@ -116,9 +115,10 @@ https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki
 
 ### Features to be added
 
-- [] Add more derivation paths (bip44, bip49, bip84, bip141)
-- [] Add Coin (3rd party blockchain) Choices which could be derived from top coins or the search located at the top of the page
-- [] Autofill for fields that have been generated in previous steps as an option for ease
+- [ ] Add more derivation paths (bip44, bip49, bip84, bip141)
+- [ ] Add Coin (3rd party blockchain) Choices which could be derived from top coins or the search located at the top of the page
+- [ ] Autofill for fields that have been generated in previous steps as an option for ease
+- [ ] Loader with some kind of crypto related imagery or design
 
 
   
