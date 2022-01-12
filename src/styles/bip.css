@@ -2,7 +2,7 @@
     position: relative;
     display: inline-block;
     float: right;
-    top: 35px;
+    top: 24px;
     width: 42px;
     height: 42px;
     text-align: center;
@@ -23,4 +23,13 @@
 .refreshIcon:active{
     color: #0057a3;
     box-shadow:inset rgb(0 0 0 / 22%) 0px 0px 10px
+}
+
+
+@media screen and (max-width: 500px) {
+    .refreshIcon{ top: 0; }
+}
+
+@media screen and (max-width: 450px) {
+    .refreshIcon{ top: 24px; }
 }

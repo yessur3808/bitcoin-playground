@@ -44,8 +44,6 @@ class GenerateHDAddress extends React.Component {
             const root = bip32.fromSeed(seed)
             const child = root.derivePath(path)
             const keyPair = ECPair.fromWIF(child.toWIF())
-
-
     
             const { address } = 
             bitcoin.payments.p2sh({
@@ -65,9 +63,8 @@ class GenerateHDAddress extends React.Component {
         }
     }
 
-
      // set Error messages near where the error occurs
-     setErrorMsg(class_name,msg, active){
+    setErrorMsg(class_name,msg, active){
         var class_name_all = class_name+' .errorMsg';
         var msgClassName = class_name_all+' p'; 
         if(active){
@@ -194,10 +191,6 @@ class GenerateHDAddress extends React.Component {
 
 
     render(){
-
-   
-
-     
 
         return(
             <section id="hd_segwit" className="pgSection">

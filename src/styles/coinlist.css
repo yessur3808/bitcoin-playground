@@ -260,7 +260,15 @@ source .link {
 
 
 
+@media screen and (min-width:768px) {
+    .coin-list{
+        max-width: unset;
+    }
 
+    .coin-field{
+        width: 25% !important;
+    }
+}
 
 
 @media screen and (max-width:768px) {
@@ -321,6 +329,12 @@ source .link {
         left: 7px;
     }
 
+}
+
+@media screen and (max-width:600px) {
+    .coin-widget{
+        margin-top: 72px;
+    }
 }
 
 
