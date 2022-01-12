@@ -28,6 +28,7 @@
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-manifest": "^4.4.0",
     "gatsby-plugin-sitemap": "^5.5.0",
+    "immer": "^9.0.12",
     "react": "^17.0.1",
     "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-dom": "^17.0.1",
