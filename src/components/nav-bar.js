@@ -29,60 +29,71 @@ export default function NavBar() {
 
             
                     <div className="linklist">
-                        <AnchorLink className="anchorlink" href="#mnemonic">
+                        <AnchorLink offset='100' className="anchorlink" href="#coinWidget">
+                            <span className="linktxt">
+                            Top Coins
+                            </span>
+                        </AnchorLink>
+                        <AnchorLink offset='100' className="anchorlink" href="#mnemonic">
                             <span className="linktxt">
                             Mnemonic
                             </span>
                         </AnchorLink>
 
                         
-                        <AnchorLink className="anchorlink" href="#hd_segwit">
+                        <AnchorLink offset='100' className="anchorlink" href="#hd_segwit">
                             <span className="linktxt">
                                 HD SegWit
                             </span>
                         </AnchorLink>
 
-                        <AnchorLink className="anchorlink" href="#multi-sig">
-                            <span className="linkTxt">
-                                Multi-Sig - P2SH
+                        <AnchorLink offset='100' className="anchorlink" href="#multi-sig">
+                            <span className="linktxt">
+                                Multi-Sig
                             </span>
                         </AnchorLink>
                     </div>
                
                     <div className="burger" onClick={menuOpen}><div className="patty one"></div><div className="patty two"></div><div className="patty three"></div></div>
 
-
                     <div className="mainmenu">
                         <ul className="list">
                             <li className="list-item">
-                                <AnchorLink className="anchorlink" href="#mnemonic">
+                                <AnchorLink offset='100' className="anchorlink" href="#coinWidget">
+                                    <span className="linktxt">
+                                    Top Coins
+                                    </span>
+                                </AnchorLink>
+                            </li>
+                            <li className="list-item">
+                                <AnchorLink offset='100' className="anchorlink" href="#mnemonic">
                                     <span className="linktxt">
                                         Mnemonic
                                     </span>
                                 </AnchorLink>
                             </li>
                             
-                            <li class="list-item">
-                                <AnchorLink className="anchorlink" href="#hd_segwit">
+                            <li className="list-item">
+                                <AnchorLink offset='100' className="anchorlink" href="#hd_segwit">
                                     <span className="linktxt">
                                         HD SegWit
                                     </span>
                                 </AnchorLink>
                             </li>
                             
-                            <li className="list-item hidden">
-                                <AnchorLink className="anchorlink" href="#multi-sig">
+                            <li className="list-item">
+                                <AnchorLink offset='100' className="anchorlink" href="#multi-sig">
                                     <span className="linkTxt">
-                                        Multi-Sig - P2SH
+                                        Multi-Sig
                                     </span>
                                 </AnchorLink>
                             </li>
 
                             <li className="list-item">
                                 <div className="list-item-container">
-                                    <div class="followus clearfix"><div className="text-follow pull-left">Follow me on</div>
+                                    <div className="followus clearfix"><div className="text-follow pull-left">Follow me on</div>
                                     <div className="pull-right"> 
-                                        <span class="social-media">
+                                        <span className="social-media">
                                              <a href="https://twitter.com/curlycoffee3808" target="_blank" rel="noreferrer noopener">
                                                 <TwitterIcon className="socialIcons"/>
                                              </a>

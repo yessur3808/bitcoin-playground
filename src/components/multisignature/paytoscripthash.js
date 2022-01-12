@@ -2,12 +2,14 @@ import React from "react"
 import * as bitcoin from 'bitcoinjs-lib';
 import RemoveCircleIcon from '@mui/icons-material/RemoveCircle';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import '../../styles/multisig.css'
 
 class GenerateMultisignature extends React.Component {
     state = {
         public_keys: [null],
         approvals: 1,
-        addressMultiSig: null
+        addressMultiSig: null,
+        valid: false
     };
 
     customHandleUpdate = (name, val) => {
@@ -35,10 +37,9 @@ class GenerateMultisignature extends React.Component {
         }else{
             document.querySelectorAll(class_name_all).forEach(function(el) { // reset all validation icons
                 el.classList.remove('active');
-              });
+            });
         }
     }
-
 
     genMultiSigAddress = () => {
         var m = this.state.approvals,
@@ -59,7 +60,6 @@ class GenerateMultisignature extends React.Component {
         }
     }
 
-
     addPublicKey = ev => {
         var curPublicKey = [...this.state.public_keys];
         curPublicKey.push(null);
@@ -73,7 +73,6 @@ class GenerateMultisignature extends React.Component {
         this.customHandleUpdate("public_keys", curPublicKey)
     }
 
-
     validateFields = () => {
         var public_key = this.state.public_keys,
         approvals = this.state.approvals,
@@ -81,20 +80,29 @@ class GenerateMultisignature extends React.Component {
         
         if(!public_key){
             validateBool = false;
+            this.setErrorMsg("#pubkeyLabel0","A Public Key is required",true)
+        }else{
+            this.setErrorMsg("#pubkeyLabel0","",false)
         }
 
+        for(var i = 0; i < public_key.length; i++){
+            var curkey = public_key[i];
 
-        if(public_key && !Array.isArray(public_key)){
+            if(!curkey){
+                validateBool = false;
+                this.setErrorMsg("#pubkeyLabel"+i,"A Public Key is required, Invalid Public Key",true)
+            }else{
+                this.setErrorMsg("#pubkeyLabel"+i,"",false)
+            }
+        }
+
+        if(!approvals){
             validateBool = false;
         }
 
-        if(public_key && Array.isArray(public_key) && public_key.length < 1){
-            validateBool = false;
-        }
-
+        this.customHandleUpdate("valid", validateBool)
         return validateBool
     }
-
 
     handleSubmit = ev => {
         ev.preventDefault();
@@ -102,7 +110,6 @@ class GenerateMultisignature extends React.Component {
             this.genMultiSigAddress();
         }
     }
-
 
     render(){
         return(
@@ -112,13 +119,10 @@ class GenerateMultisignature extends React.Component {
                 </h3>
                 <div className="section-container">
                     <div className="input-section">
-
-
                         {
                             (this.state.public_keys.map((elem, idx) => 
                             (
                                 <label id={"pubkeyLabel"+idx} className="inputLabel publickeyLabel">
-
                                     {
                                         (idx > 0) ? (
                                         <div className="removeKey" data-index={idx} onClick={this.removePublicKey}>
@@ -126,46 +130,32 @@ class GenerateMultisignature extends React.Component {
                                         </div>
                                         ) : ""
                                     }
-
                                     <div className="fieldName">Public Key #{(idx+1)}</div>
-
                                     <input id={"publickey"+idx} className="fieldInput" type="text" name="Public Key" placeholder="Enter a Public Key" onChange={this.updatePublicKey} data-index={idx} value={(elem) ? (elem) : ""}  />
 
                                     <div className="errorMsg"><p></p></div>
                                 </label>
                             )
-                        
                         ))
                     }
-                    
-                        
-
-                        <div id="addpubkey" className="generatebtn" onClick={this.addPublicKey}>
+                          
+                    <div id="addpubkey" className="generatebtn" onClick={this.addPublicKey}>
                             <div className="addicon">
                                 <AddCircleOutlineIcon />
                             </div>
                             Add Public Key
-                        </div>
-
-                        <label id="approvalLabel" className="inputLabel">
-                            <div className="fieldName">Approvals</div>
-                            <input id="approvalsNum" className="fieldInput" type="text" name="Approvals" placeholder="0" data-name="approvals" onChange={this.handleUpdate}  value={this.state["approvals"]}  />
-                            <div className="errorMsg"><p></p></div>
-                        </label> 
-
-
-                        <div id="submitBtn" className="generatebtn" onClick={this.handleSubmit} >
-                            Submit
-                        </div>
-                        
-
-
-
                     </div>
-
+                    <label id="approvalLabel" className="inputLabel">
+                        <div className="fieldName">Approvals</div>
+                        <input id="approvalsNum" className="fieldInput" type="text" name="Approvals" placeholder="0" data-name="approvals" onChange={this.handleUpdate}  value={this.state["approvals"]}  />
+                        <div className="errorMsg"><p></p></div>
+                    </label> 
+                    <div id="submitBtn" className={(this.state.valid) ? ("generatebtn") : ("generatebtn disabled")} onClick={this.handleSubmit} >
+                        Submit
+                    </div>
+                </div>
 
                     <div className="output-section">
-
                         <div className="displayVal full">
                             <div className="displayHeading">Address</div>
                             <div className="copyVal">
@@ -173,11 +163,7 @@ class GenerateMultisignature extends React.Component {
                             </div>
                         </div>
                     </div>
-
-
-
                 </div>
-
             </section>
         )
     }

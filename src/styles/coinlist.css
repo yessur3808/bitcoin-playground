@@ -2,15 +2,15 @@
     position: relative;
     display: block;
     width: 100%;
-    max-width: 760px;
+    max-width: 1200px;
     margin: 0 auto;
+    margin-bottom: 72px;
 }
 
 .coin-list{
     position: relative;
     display: block;
     overflow: auto;
-    max-height: 332px;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
@@ -268,11 +268,14 @@ source .link {
     .coin-list .coin-container .coin-row{
         display: block;
         height: unset;
+        margin-top: 16px;
     }
 
     .coin-list .coin-container .coin-row .coin-data{
         position: relative;
         display: inline-block;
+        line-height: unset;
+        margin-bottom: 14px;
     }
 
     .coin-field{
@@ -281,6 +284,8 @@ source .link {
         width: 40% !important;
         margin-right: 5%;
         text-align: left;
+        height: 50px;
+        line-height: 63px;
     }
 
     .coin-field span{
@@ -296,13 +301,16 @@ source .link {
     .coin-list .coin-container .coin-row .coin,
     .coin-list .coin-container .coin-row .coin h1{
         margin: 0 auto;
-        text-align: center;
+        /* text-align: center; */
         display: block;
         width: 100%;
+        font-size: 24px;
     }
 
     .coin-list .coin-container .coin-row .coin img{
         margin-right: 0;
+        width: 32px;
+        top: -2px;
     }
 
     .coin-list .coin-container .coin-row .coin h1 span {
@@ -313,4 +321,12 @@ source .link {
         left: 7px;
     }
 
+}
+
+
+
+@media screen and (max-width:360px) {
+
+
+    
 }

@@ -27,6 +27,7 @@ module.exports = {
         fonts: [
           'material icons',
           'Roboto:300,400,500,600,700',
+          'lato:300,400,500,700',
         ],
       },
     },

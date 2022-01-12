@@ -1,5 +1,4 @@
 import React from "react";
-import { Router } from "@reach/router";
 import PlaygroundLayout from "../layouts/playground";
 import GenerateBipSeed from "../components/bip/generate";
 import GenerateHDAddress from "../components/hierarchical/hd-address"
@@ -9,9 +8,6 @@ import "../styles/index.css";
 
 class App extends React.Component {
     state = {};
-
-
-
     render(){
         return(
             <>
@@ -22,12 +18,7 @@ class App extends React.Component {
                 <GenerateMultisignature />
              </PlaygroundLayout>
             </>
-           
-   
         )
     }
-
-    
 }
-
 export default App

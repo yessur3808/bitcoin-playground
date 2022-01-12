@@ -4,6 +4,7 @@ import * as bitcoin from 'bitcoinjs-lib';
 import ECPairFactory from 'ecpair';
 import * as ecc from 'tiny-secp256k1';
 
+import '../../styles/hd-address.css'
 
 class GenerateHDAddress extends React.Component {
     state = {
@@ -112,26 +113,44 @@ class GenerateHDAddress extends React.Component {
 
         if(!this.checkVal(purpose) || isNaN(purpose)){
           validateBool = false;
+          this.setErrorMsg("#purposeLabel","A number is required for the field",true)
+        }else{
+          this.setErrorMsg("#purposeLabel", "", false)
         }
 
         if(!this.checkVal(coin) || isNaN(coin)){
           validateBool = false;
+          this.setErrorMsg("#coinLabel","A number is required for the field",true)
+        }else{
+          this.setErrorMsg("#coinLabel", "", false)
         }
 
-        if(!this.checkVal(account) || isNaN(account)){
+        if(!this.checkVal(account) || isNaN(account) || (parseInt(account) > 100) || (parseInt(account) < 0)){
           validateBool = false;
-        }        
+          this.setErrorMsg("#accountLabel","A number is required for the field (between 0 & 100)",true)
+        }else{
+          this.setErrorMsg("#accountLabel","",false)  
+        }
 
         if(!this.checkVal(change) || isNaN(change)){
           validateBool = false;
+          this.setErrorMsg("#changeLabel","Either 0 or 1 is required",true)
+        }else{
+          this.setErrorMsg("#changeLabel","",false) 
         }
 
         if(this.checkVal(change) && !isNaN(change) && (( (change) != 0) && ((change) != 1))){
+          this.setErrorMsg("#changeLabel","Either 0 or 1 is required",true)
           validateBool = false;
+        }else{
+          this.setErrorMsg("#changeLabel","",false) 
         }
 
         if(!this.checkVal(addressIndex) || isNaN(addressIndex)){
           validateBool = false;
+          this.setErrorMsg("#addressidxLabel","A number is required",true)
+        }else{
+          this.setErrorMsg("#addressidxLabel","",false) 
         }
 
         document.getElementById("hdsegwitBtn").disabled = !validateBool;

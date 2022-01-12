@@ -1,0 +1,26 @@
+.refreshIcon{
+    position: relative;
+    display: inline-block;
+    float: right;
+    top: 35px;
+    width: 42px;
+    height: 42px;
+    text-align: center;
+    line-height: 52px;
+    box-shadow: rgb(0 0 0 / 9%) 0px 7px 11px;
+    border-radius: 5px;
+    color: #666;
+    user-select: none;
+    cursor: pointer;
+    transition: all 0.6s ease;
+}
+
+.refreshIcon svg{
+    pointer-events: none;
+}
+
+.refreshIcon:hover,
+.refreshIcon:active{
+    color: #0057a3;
+    box-shadow:inset rgb(0 0 0 / 22%) 0px 0px 10px
+}

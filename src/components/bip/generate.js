@@ -1,7 +1,7 @@
 import React from "react"
 import * as bip39 from 'bip39';
 import CachedIcon from '@mui/icons-material/Cached';
-
+import '../../styles/bip.css'
 
 class GenerateBipSeed extends React.Component {
     state = {
@@ -44,8 +44,6 @@ class GenerateBipSeed extends React.Component {
         });
     }
 
-
- 
     generateCurrentSeed = () => {
         var num = this.state.seedNum,
         lang = this.state.curlang;
@@ -60,8 +58,6 @@ class GenerateBipSeed extends React.Component {
     customHandleUpdate = (name, val) => {
         this.setState({
             [name]: val
-        },() => { 
-            console.log('current state is ', this.state);
         });
     }
 
@@ -85,8 +81,6 @@ class GenerateBipSeed extends React.Component {
                 </h3>
 
                 <div className="section-container">
-
-
                     <div className="input-section">
                         <label className="inputLabel inline-label">
                             <div className="fieldName">Language</div>
@@ -127,9 +121,7 @@ class GenerateBipSeed extends React.Component {
                         <div className="displayVal">
                             <div className="displayHeading">BIP39 Seed</div>
                             <div className="copyVal">
-                                <textarea id="bipSeedTxt" readOnly onFocus={this.handleFocus} value={(this.state.bipSeed) ? this.state.bipSeed : ""}>
-                                    
-                                </textarea>
+                                <textarea id="bipSeedTxt" readOnly onFocus={this.handleFocus} value={(this.state.bipSeed) ? this.state.bipSeed : ""}></textarea>
                             </div>
                         </div>
                     </div>

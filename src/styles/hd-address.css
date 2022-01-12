@@ -1,0 +1,41 @@
+
+#hd_segwit label{
+    margin-bottom: 12px;
+    display: flex;
+    width: 50%;
+    margin-right: 120px;
+}
+
+#hd_segwit label .fieldName{
+    font-size: 0.96em;
+    width: 132px;
+}
+
+#hd_segwit label .fieldInput{
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background-color: rgba(255,255,255, 0);
+    border-radius: 0;
+    height: 24px;
+    padding: 0 12px;
+    width: 100%;
+}
+
+#hd_segwit label:last-child{
+    margin-bottom: 42px;
+}
+
+#hd_segwit label .fieldInput:focus,
+#hd_segwit label .fieldInput:active{
+    border-color: #222;
+}
+
+#hd_segwit label .fieldInput:hover{
+    border-color: #777;
+}
+
+@media screen and (max-width:768px) {
+    #hd_segwit label{
+        width: 95%;
+    }
+}
