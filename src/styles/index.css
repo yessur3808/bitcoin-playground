@@ -336,7 +336,7 @@ form .errorMsg {
 
     .output-section .displayVal textarea{
         max-width: 95%;
-        height: 120px;
+        height: unset;
     }
 }
 

@@ -7,14 +7,27 @@ import '../../styles/multisig.css'
 class GenerateMultisignature extends React.Component {
     state = {
         public_keys: [null],
-        approvals: 1,
-        addressMultiSig: null,
+        approvals: 1, 
+        addressMultiSig: null, 
         valid: false
     };
+
+    handleUpdate = ev => {
+        var name = ev.target.getAttribute('data-name'),
+        val = ev.target.value;
+
+        this.setState({
+            [name]: val
+        },()=>{
+            this.validateFields();
+        });
+    }
 
     customHandleUpdate = (name, val) => {
         this.setState({
             [name]: val
+        },()=>{
+            this.validateFields();
         });
     }
 
@@ -78,7 +91,7 @@ class GenerateMultisignature extends React.Component {
         approvals = this.state.approvals,
         validateBool = true;
         
-        if(!public_key){
+        if(!public_key[0]){
             validateBool = false;
             this.setErrorMsg("#pubkeyLabel0","A Public Key is required",true)
         }else{
@@ -87,7 +100,6 @@ class GenerateMultisignature extends React.Component {
 
         for(var i = 0; i < public_key.length; i++){
             var curkey = public_key[i];
-
             if(!curkey){
                 validateBool = false;
                 this.setErrorMsg("#pubkeyLabel"+i,"A Public Key is required, Invalid Public Key",true)
@@ -100,7 +112,14 @@ class GenerateMultisignature extends React.Component {
             validateBool = false;
         }
 
-        this.customHandleUpdate("valid", validateBool)
+        if(approvals && approvals > public_key.length){
+            validateBool = false;
+            this.setErrorMsg("#approvalLabel","Approvals must be less or equal than the number of specified Public Keys - (" + public_key.length+")",true);
+        }else{
+            this.setErrorMsg("#approvalLabel","",false)
+        }
+
+        this.setState({ "valid": validateBool });
         return validateBool
     }
 
@@ -125,7 +144,7 @@ class GenerateMultisignature extends React.Component {
                                 <label id={"pubkeyLabel"+idx} className="inputLabel publickeyLabel">
                                     {
                                         (idx > 0) ? (
-                                        <div className="removeKey" data-index={idx} onClick={this.removePublicKey}>
+                                        <div id={"removeKey"+idx} className="removeKey" data-index={idx} onClick={this.removePublicKey}>
                                             <RemoveCircleIcon />
                                         </div>
                                         ) : ""
@@ -147,7 +166,7 @@ class GenerateMultisignature extends React.Component {
                     </div>
                     <label id="approvalLabel" className="inputLabel">
                         <div className="fieldName">Approvals</div>
-                        <input id="approvalsNum" className="fieldInput" type="text" name="Approvals" placeholder="0" data-name="approvals" onChange={this.handleUpdate}  value={this.state["approvals"]}  />
+                        <input id="approvalsNum" className="fieldInput" type="text" name="Approvals" placeholder="..." data-name="approvals" onChange={this.handleUpdate}  value={this.state["approvals"]}  />
                         <div className="errorMsg"><p></p></div>
                     </label> 
                     <div id="submitBtn" className={(this.state.valid) ? ("generatebtn") : ("generatebtn disabled")} onClick={this.handleSubmit} >

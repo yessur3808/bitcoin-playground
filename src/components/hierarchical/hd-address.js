@@ -78,11 +78,11 @@ class GenerateHDAddress extends React.Component {
     }
 
     checkVal = (val) => {
-      if(val === 0){ return true; }
+      if(val === 0 || parseInt(val) === 0){ return true; }
       if(val != undefined && val != null && val != false){
-        return true
+        return true;
       }
-      return false
+      return false;
     }
 
     validateFields = () => {
@@ -122,26 +122,23 @@ class GenerateHDAddress extends React.Component {
           this.setErrorMsg("#coinLabel", "", false)
         }
 
-        if(!this.checkVal(account) || isNaN(account) || (parseInt(account) > 100) || (parseInt(account) < 0)){
+        if(this.checkVal(account) && !isNaN(account) && (parseInt(account) <= 100) && (parseInt(account) >= 0)){
+          this.setErrorMsg("#accountLabel","",false)  
+        }else{
           validateBool = false;
           this.setErrorMsg("#accountLabel","A number is required for the field (between 0 & 100)",true)
-        }else{
-          this.setErrorMsg("#accountLabel","",false)  
         }
 
-        if(!this.checkVal(change) || isNaN(change)){
-          validateBool = false;
-          this.setErrorMsg("#changeLabel","Either 0 or 1 is required",true)
-        }else{
+        console.log('checking account numb ', this.checkVal(account) && !isNaN(account), (parseInt(account) <= 100), (parseInt(account) >= 0));
+
+        if(this.checkVal(change) && !isNaN(change) && (( parseInt(change) === parseInt(0)) || (parseInt(change) === 1))){
           this.setErrorMsg("#changeLabel","",false) 
+        }else{
+          this.setErrorMsg("#changeLabel","Either 0 or 1 is required",true)
+          validateBool = false;
         }
 
-        if(this.checkVal(change) && !isNaN(change) && (( (change) != 0) && ((change) != 1))){
-          this.setErrorMsg("#changeLabel","Either 0 or 1 is required",true)
-          validateBool = false;
-        }else{
-          this.setErrorMsg("#changeLabel","",false) 
-        }
+        console.log('checking change numb ', this.checkVal(change) && !isNaN(change), ( parseInt(change) === parseInt(0)) , (parseInt(change) === 1));
 
         if(!this.checkVal(addressIndex) || isNaN(addressIndex)){
           validateBool = false;
@@ -259,7 +256,17 @@ class GenerateHDAddress extends React.Component {
                 <div className="output-section">
 
 
-                    {(this.state.path) ? (<b>Path</b> - this.state.path) : ""}
+                    {(this.state.path) ? 
+                    (
+                      <div className="displayVal">
+                          <div className="displayHeading">Path</div>
+                          <div className="pathVal" onFocus={this.handleFocus}>
+                              {this.state.path}
+                          </div>
+                      </div>
+                    )
+                     : 
+                    ("")}
 
 
                   <div className="displayVal">
