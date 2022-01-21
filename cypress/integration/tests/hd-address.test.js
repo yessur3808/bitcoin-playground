@@ -1,7 +1,7 @@
 describe('Generate a Hierarchical Deterministic Segregated Witness bitcoin address', () => {
     beforeEach(() => {
         // Cypress starts out with a blank slate for each test
-        cy.visit('http://localhost:7000/#hd_segwit');
+        cy.visit('https://yessur3808.github.io/bitcoin-playground/#hd_segwit');
     })
 
 

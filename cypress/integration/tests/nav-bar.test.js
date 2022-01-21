@@ -1,7 +1,7 @@
 describe('Heading Menu', () => {
     beforeEach(() => {
         // Cypress starts out with a blank slate for each test
-        cy.visit('http://localhost:7000/');
+        cy.visit('https://yessur3808.github.io/bitcoin-playground/');
     })
 
     it('Check Main Header', () => {
@@ -59,10 +59,14 @@ describe('Heading Menu', () => {
     
         cy.viewport(360, 480)
 
+        cy.wait(5000)
+
         cy.get('.burger')
         .click()
         .should('have.class', 'active')
 
+        cy.wait(5000)
+        
         cy.get('.burger')
         .click()
         .should('not.have.class', 'active')

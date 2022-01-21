@@ -1,7 +1,7 @@
 describe('Generate Bip39 Seed', () => {
     beforeEach(() => {
         // Cypress starts out with a blank slate for each test
-        cy.visit('http://localhost:7000/#mnemonic');
+        cy.visit('https://yessur3808.github.io/bitcoin-playground/#mnemonic');
     })
 
     it('Test Generator Word Count', () => {

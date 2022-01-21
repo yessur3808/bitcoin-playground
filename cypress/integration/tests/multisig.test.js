@@ -1,7 +1,7 @@
 describe('Generate a Multisignature Pay-To-Script-Hash bitcoin address', () => {
     beforeEach(() => {
         // Cypress starts out with a blank slate for each test
-        cy.visit('http://localhost:7000/#multi-sig');
+        cy.visit('https://yessur3808.github.io/bitcoin-playground/#multi-sig');
 
     })
 
